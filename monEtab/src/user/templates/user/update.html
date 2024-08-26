@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Utilisateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar img {
+            width: 100px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #34495e;
+        }
+
+        .sidebar .logout-button {
+            padding: 15px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-container h2 {
+            grid-column: span 2;
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="date"] {
+            padding: 8px;
+        }
+
+        .form-actions {
+            grid-column: span 2;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-actions button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .form-actions .save-button {
+            background-color: #27ae60;
+        }
+
+        .form-actions .cancel-button {
+            background-color: #e74c3c;
+        }
+
+        .form-actions .save-button:hover {
+            background-color: #2ecc71;
+        }
+
+        .form-actions .cancel-button:hover {
+            background-color: #c0392b;
+        }
+
+        .form-message {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="image.avif" alt="Logo de l'Établissement">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="tableauBord.html">Dashboard</a></li>
+            <li><a href="ajoutEleve.html">Élèves</a></li>
+            <li><a href="ajoutProf.html">Professeurs</a></li>
+            <li><a href="ajouteUser.html">Utilisateurs</a></li>
+            <li><a href="rapports.html">Rapports</a></li>
+        </ul>
+        <div class="logout-button" onclick="logout()">Se déconnecter</div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Modifier l'utilisateur</h1>
+        </header>
+
+        <div class="form-container">
+            <h2>Formulaire de modification de l'utilisateur</h2>
+            <form id="add-prof-form">
+                {{ form }}
+                <div class="form-group">
+                    <label for="name">Pseudo</label>
+                    <input type="text" id="name" name="name" value="" required>
+                </div> <br>
+                <div class="form-group">
+                    <label for="surname">Mot de passe</label>
+                    <input type="password" id="surname" name="surname" required>
+                </div>
+                
+                <br>
+                
+                <div class="form-actions">
+                    <button type="submit" class="save-button">Valider</button>
+                    <button type="button" class="cancel-button" onclick="cancel()">Annuler</button>
+                </div>
+                <div class="form-message" id="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('add-prof-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Récupération des valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            
+            // Validation simple
+            if (!name || !surname) {
+                document.getElementById('form-message').textContent = 'Veuillez remplir tous les champs.';
+                return;
+            }
+            
+            // Affichage d'un message de confirmation (vous pouvez remplacer ceci par une vraie action)
+            document.getElementById('form-message').textContent = '';
+            alert('Utilisateur Modifier avec succès !');
+            
+            // Réinitialiser le formulaire après l'envoi
+            document.getElementById('add-prof-form').reset();
+        });
+
+        function cancel() {
+            if (confirm('Êtes-vous sûr de vouloir annuler ? Les modifications non enregistrées seront perdues.')) {
+                document.getElementById('add-prof-form').reset();
+                document.getElementById('form-message').textContent = '';
+            }
+        }
+
+        function logout() {
+            // Ici, vous pouvez ajouter la logique pour la déconnexion.
+            alert('Déconnexion réussie.');
+        }
+    </script>
+</body>
+</html>

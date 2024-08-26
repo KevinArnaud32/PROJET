@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports</title>
+    <style>
+    
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+
+</head>
+<body>
+    <div class="sidebar">
+        <img src="im.jpg" alt="Logo de l'Établissement">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
+            <li><a href="{% url 'student:index' %}">Élèves</a></li>
+            <li><a href="{% url 'teacher:index' %}">Professeurs</a></li>
+            <li><a href="{% url 'user:index' %}">Utilisateurs</a></li>
+            <li><a href="{% url 'report:index' %}">Rapports</a></li>
+        </ul>
+        <div class="logout-button" onclick="logout()">Se déconnecter</div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Rapports</h1>
+        </header>
+
+        <div class="form-container">
+            <h2>Générer un Rapport</h2>
+            <div class="form-group">
+                <label for="report-type">Sélectionner la liste</label>
+                <select id="report-type">
+                    <option value="students">Liste des Élèves</option>
+                    <option value="teachers">Liste des Professeurs</option>
+                    <option value="users">Liste des Utilisateurs</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button onclick="generateReport('pdf')">Obtenir Format PDF</button>
+                <button onclick="generateReport('excel')">Obtenir Format Excel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateReport(format) {
+            const reportType = document.getElementById('report-type').value;
+            alert(`Génération du rapport ${reportType} en format ${format}.`);
+            // Vous pouvez remplacer l'alerte par une vraie logique pour générer le rapport.
+        }
+
+        function logout() {
+            // Ici, vous pouvez ajouter la logique pour la déconnexion.
+            alert('Déconnexion réussie.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="004194e1-ed5a-476a-a5f2-8985c6048a9a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/static/css/test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/static/image/image.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/templates/ajoutEleves/ajoutEleve.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutEleve/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/templates/ajoutProf/ajoutProf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajoutProf/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/static/css/test2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/templates/ajoutUser/ajouteUser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/ajouteUser/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/templates/connection/connection.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/connection/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/dashboard/templates/dashboard/tableauBord.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/monEtab/src/dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/monEtab/src/dashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/templates/eleves/listeEleve.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/eleve/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/templates/listerUser/listerUser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/listerUser/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/templates/modifUser/modifUser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifUser/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/templates/modifierEleve/modifierEleve.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierEleve/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/templates/modifierProf/modifierProf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/modifierProf/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/templates/professeur/listeProf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/professeur/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/templates/rapports/rapports.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/rapports/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/website/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/monEtab/src/website/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/monEtab/src/website/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monEtab/src/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/monEtab/src/website/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2l47Hr8jFqXVhSccQZAdaGggKry" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/HP ELITEBOOK/Documents/COURS PYTHON/PROJETFINAL 3"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-7a29c1521ef0-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.298" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="004194e1-ed5a-476a-a5f2-8985c6048a9a" name="Changes" comment="" />
+      <created>1724427409354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724427409354</updated>
+    </task>
+    <servers />
+  </component>
+</project>
