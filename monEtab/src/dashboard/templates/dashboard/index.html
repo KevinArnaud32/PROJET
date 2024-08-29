@@ -1,55 +1,31 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de Bord</title>
-    
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+{% extends 'base.html' %}
 
-</head>
-<body>
-    <div class="sidebar">
-        <img src="image.avif" alt="Logo de l'Établissement">
-        <ul>
-            <li><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
-            <li><a href="{% url 'student:index' %}">Élèves</a></li>
-            <li><a href="{% url 'teacher:index' %}">Professeurs</a></li>
-            <li><a href="{% url 'user:index' %}">Utilisateurs</a></li>
-            <li><a href="{% url 'report:index' %}">Rapports</a></li>
-        </ul>
-        <div class="logout-button">Se déconnecter</div>
+{% block content %}
+<header>
+    <h1>Tableau de Bord</h1>
+    <marquee><p>Bienvenue sur votre tableau de bord</p></marquee>
+</header>
+
+<section class="stats">
+    <div class="card">
+        <h3>Élèves</h3>
+        <p>Nombre d'élèves : 1,234</p>
     </div>
-
-    <div class="main-content">
-        <header>
-            <h1>Tableau de Bord</h1>
-            <marquee><p>Bienvenue sur votre tableau de bord</p></marquee>
-        </header>
-
-        <section class="stats">
-            <div class="card">
-                <h3>Élèves</h3>
-                <p>Nombre d'élèves : 1,234</p>
-            </div>
-            <div class="card">
-                <h3>Professeurs</h3>
-                <p>Nombre de professeurs : 56</p>
-            </div>
-            <div class="card">
-                <h3>Administrateurs</h3>
-                <p>Nombre d'administrateurs : 12</p>
-            </div>
-            <div class="card">
-                <h3>Genre d'élèves</h3>
-                <canvas id="genderChart"></canvas>
-            </div>
-        </section>
+    <div class="card">
+        <h3>Professeurs</h3>
+        <p>Nombre de professeurs : 56</p>
     </div>
+    <div class="card">
+        <h3>Administrateurs</h3>
+        <p>Nombre d'administrateurs : 12</p>
+    </div>
+    <div class="card">
+        <h3>Genre d'élèves</h3>
+        <canvas id="genderChart"></canvas>
+    </div>
+</section>
 
-    <!-- Ajoutez le CDN de Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var ctxGender = document.getElementById('genderChart').getContext('2d');
@@ -90,5 +66,5 @@
             });
         });
     </script>
-</body>
-</html>
+
+{% endblock content %}

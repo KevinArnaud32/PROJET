@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<header>
+    <h1>Modifier un Élève</h1>
+</header>
+
+<div class="form-container">
+    <h2>Formulaire de modification des elèves</h2>
+    <form method="post" id="add-student-form" class="add-student-form">
+        {% csrf_token %}
+        {{ student_form }}
+        
+        <div class="form-actions">
+            <button type="submit" class="save-button">Enregistrer</button>
+            <button type="button" class="cancel-button" onclick="cancel()">Annuler</button>
+        </div>
+        <div class="form-message" id="form-message"></div>
+    </form>
+</div>
+
+
+{% endblock content %}

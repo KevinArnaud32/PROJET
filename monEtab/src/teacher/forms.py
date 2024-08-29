@@ -1,12 +1,8 @@
 from django import forms
+from .models import Teacher
 
-class TeacherForm(forms.Form):
-    first_name = forms.CharField(max_length=10)
-    last_name = forms.CharField(max_length=30)
-    birth_date = forms.DateField()
-    city = forms.CharField(max_length=30)
-    number = forms.CharField(max_length=10)
-    vacation = forms.BooleanField()
-    subject_taught = forms.CharField(max_length=30)
-    next_course = forms.CharField(max_length=30)
-    subject_next_meet = forms.CharField(max_length=30)
+class TeacherForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = ['first_name','last_name','birth_date','city','number','vacation','subject_taught','next_course','subject_next_meet']
+        

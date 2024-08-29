@@ -18,9 +18,9 @@
         <h2>Menu</h2>
         <ul>
             <li><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
-            <li><a href="{% url 'student:index' %}">Élèves</a></li>
-            <li><a href="{% url 'teacher:index' %}">Professeurs</a></li>
-            <li><a href="{% url 'user:index' %}">Utilisateurs</a></li>
+            <li><a href="{% url 'student:list' %}">Élèves</a></li>
+            <li><a href="{% url 'teacher:list' %}">Professeurs</a></li>
+            <li><a href="{% url 'user:list' %}">Utilisateurs</a></li>
             <li><a href="{% url 'report:index' %}">Rapports</a></li>
         </ul>
         <div class="logout-button" onclick="logout()">Se déconnecter</div>

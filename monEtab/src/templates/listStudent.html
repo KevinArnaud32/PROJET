@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+
+    /* Styles pour le pop-up */
+    .popup-overlay {
+        display: none; /* Masqué par défaut */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay */
+        z-index: 1000; /* Au-dessus du contenu */
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        position: relative; /* Positionnement relatif pour le pop-up */
+        z-index: 1001; /* Au-dessus de l'overlay */
+    }
+    
+    /* Appliquer le flou uniquement à l'arrière-plan */
+    .blur {
+        filter: blur(5px);
+        position: relative;
+        z-index: 999; /* Sous le pop-up */
+    }
+        
+        
+    </style>
+
+
+<header>
+    <h1>Liste des Élèves</h1>
+    <a href="{% url 'student:add' %}">
+        <button class="add-button">Nouvel Élève</button>
+    </a>
+    <a href="{% url 'dashboard:index' %}">
+        <button class="add-button"> Retour </button>
+    </a>
+</header>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Classe</th>
+            <th>Matricule</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+            <tr>
+                <td> {{ student.first_name }} </td>
+                <td> {{ student.last_name }} </td>
+                <td> {{ student.class_student }} </td>
+                <td> {{ student.register_number }} </td>
+                <td class="action-buttons">
+                    <a href="{% url 'student:modifierStudent' student.id %}">
+                        <button class="edit-button">Update</button>
+                    </a>
+                    <a href="{% url 'student:supprimerStudent' student.id %}" id="deleteLink" >
+                        <button class="delete-button" onclick="confirmDelete(1)">supprimer</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        <!-- Ajoutez plus de lignes ici -->
+    </tbody>
+</table>
+
+<div id="confirmationPopup" class="popup-overlay">
+    <div class="popup-content">
+        <p>Êtes-vous sûr de vouloir supprimer cet élément ?</p>
+        <button id="confirmButton">Oui</button>
+        <button id="cancelButton">Non</button>
+    </div>
+</div>
+
+<script>
+    
+    function confirmDelete() {
+    // Prévenir le comportement par défaut du lien
+    event.preventDefault();
+
+    // Obtenir les éléments
+    const popupOverlay = document.getElementById('confirmationPopup');
+    const body = document.body;
+    const deleteLink = document.getElementById('deleteLink');
+
+    // Afficher le pop-up
+    popupOverlay.style.display = 'flex'; // Affiche le pop-up
+    //body.classList.add('blur'); // Applique le flou à l'arrière-plan
+
+    // Gérer les boutons de confirmation
+    document.getElementById('confirmButton').onclick = function() {
+        body.classList.remove('blur'); // Retirer le flou
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        window.location.href = deleteLink.href; // Rediriger vers l'URL de suppression
+    };
+
+    document.getElementById('cancelButton').onclick = function() {
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        //body.classList.remove('blur'); // Retirer le flou
+    };
+}
+
+
+</script>
+
+
+{% endblock content %}

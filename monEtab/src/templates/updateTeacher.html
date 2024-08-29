@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header>
+    <h1>Modifier Professeurs</h1>
+</header>
+
+<div class="form-container">
+    <h2>Formulaire de modification professeurs</h2>
+    <form method="post" id="add-prof-form">
+        {% csrf_token %}
+        {{ teacher_form }}
+        
+        <br>
+        
+        <div class="form-actions">
+            <button type="submit" class="save-button">Enregistrer</button>
+            <button type="button" class="cancel-button" onclick="cancel()">Annuler</button>
+        </div>
+        <div class="form-message" id="form-message"></div>
+    </form>
+</div>
+{% endblock content %}

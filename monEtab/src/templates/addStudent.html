@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header>
+    <h1>Ajouter un Élève</h1>
+    <a href="{% url 'student:list' %}">
+        <button>Retour</button>
+    </a>
+</header>
+
+<div class="form-container">
+    <h2>Formulaire d'ajout d'élève</h2>
+    <form method="POST" id="add-student-form" class="add-student-form">
+        {% csrf_token %}
+        {{ student_form }}
+        <div class="form-actions">
+            <input type="submit" value="Enregistrer">
+            <input type="reset" value="Annuler">
+        </div>
+        <div class="form-message" id="form-message"></div>
+    </form>
+</div>
+
+{% endblock content %}

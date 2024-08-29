@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+.popup-overlay {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay */
+    z-index: 1000; /* Au-dessus du contenu */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup-content button {
+    margin: 10px;
+}
+
+/* Flouter l'arrière-plan */
+.blur {
+    filter: blur(5px);
+}
+
+</style>
+
+
+<header>
+    <h1>Liste des Professeurs</h1>
+    <a href="{% url 'teacher:add' %}">
+        <button class="add-button">Nouveau professeur</button>
+    </a>
+    <a href="{% url 'dashboard:index' %}">
+        <button class="add-button"> Retour </button>
+    </a>
+</header>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+            <th>Vacant</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for teacher in teachers %}
+            <tr id="prof-1">
+                <td> {{ teacher.first_name }} </td>
+                <td> {{ teacher.last_name }} </td>
+                <td> {{ teacher.city }} </td>
+                <td> {{ teacher.number }} </td>
+                <td> {{ teacher.vacation }} </td>
+                <td class="action-buttons">
+                    <a href="{% url 'teacher:modifierTeacher' teacher.id  %}">
+                        <button class="edit-button">Update</button>
+                    </a>
+                    <a href="{% url 'teacher:supprimerTeacher' teacher.id  %}" id="deleteLink" >
+                        <button class="delete-button" onclick="confirmDelete(1)">supprimer</button>
+                    </a>   
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pop-up de confirmation -->
+<div id="confirmationPopup" class="popup-overlay">
+    <div class="popup-content">
+        <p>Êtes-vous sûr de vouloir supprimer cet élément ?</p>
+        <button id="confirmButton">Oui</button>
+        <button id="cancelButton">Non</button>
+    </div>
+</div>
+
+<script>
+    
+    function confirmDelete() {
+    // Prévenir le comportement par défaut du lien
+    event.preventDefault();
+
+    // Obtenir les éléments
+    const popupOverlay = document.getElementById('confirmationPopup');
+    const body = document.body;
+    const deleteLink = document.getElementById('deleteLink');
+
+    // Afficher le pop-up
+    popupOverlay.style.display = 'flex'; // Affiche le pop-up
+    //body.classList.add('blur'); // Applique le flou à l'arrière-plan
+
+    // Gérer les boutons de confirmation
+    document.getElementById('confirmButton').onclick = function() {
+        body.classList.remove('blur'); // Retirer le flou
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        window.location.href = deleteLink.href; // Rediriger vers l'URL de suppression
+    };
+
+    document.getElementById('cancelButton').onclick = function() {
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        //body.classList.remove('blur'); // Retirer le flou
+    };
+}
+
+
+</script>
+
+{% endblock content %}

@@ -1,27 +1,64 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from .forms import MyForm, UserForm
+from django.shortcuts import render, redirect
+from .forms import UserForm
+from .models import User
+
 
 # Create your views here.
-def index(request):
-    return render(request,'user/index.html')
+def list(request):
 
-def ajouterUser(request):
+    users = User.objects.all()
 
-    if request.method == "post":
+    context = {
+        'users': users
+    }
+
+    return render(request,'listUser.html', context)
+
+def add(request):
+
+    if request.method == "POST":
         print(request.POST)
         user_form = UserForm(request.POST)
         
         if user_form.is_valid():
             print(user_form.cleaned_data)
+            user_form.save()
+            return redirect('user:list')
+        else:
+            return render(request, 'user:modifierUser.html', context)
 
     user_form = UserForm()
-    my_form = MyForm()
     
-    context = { 'my_form': my_form, 'user_form': user_form }
-    return render(request, 'user/ajouterUser.html', context)
+    context = {'user_form': user_form }
+    return render(request, 'addUser.html', context)
 
-def modifierUser(request):
-    my_form = MyForm()
-    context = { 'my_form': my_form }
-    return render(request, 'user/update.html', context)
+def update(request,id):
+
+    user = User.objects.get(id = id)
+
+    context = {
+        'title': 'modification utilisateur'
+    }
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance = user)
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('user:list')
+    
+    # user = User.objects.get(id = id)
+
+    user_form = UserForm(instance = user)
+
+    context["user_form"] = user_form
+
+    return render(request, 'updateUser.html', context)
+
+
+def delete(request, id):
+
+    user = User.objects.get(id = id)
+    user.delete()
+
+    return redirect('user:list')

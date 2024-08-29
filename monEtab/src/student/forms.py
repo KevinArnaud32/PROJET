@@ -1,10 +1,7 @@
 from django import forms
+from .models import Student
 
-class StudentForm(forms.Form):
-    first_name = forms.CharField(max_length = 10)
-    last_name = forms.CharField(max_length = 10)
-    birth_date = forms.DateField()
-    city = forms.CharField(max_length=30)
-    number = forms.CharField(max_length=10)
-    class_student = forms.CharField(max_length=30)
-    register_number = forms.CharField(max_length=30)
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['first_name','last_name','birth_date','city','number','class_student','register_number']

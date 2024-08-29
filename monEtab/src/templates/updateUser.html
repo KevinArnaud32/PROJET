@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<header>
+    <h1>Modifier l'utilisateur</h1>
+</header>
+
+<div class="form-container">
+    <h2>Formulaire de modification de l'utilisateur</h2>
+    <form method="post" id="add-prof-form">
+        {% csrf_token %}
+        {{ user_form }}
+        
+        <br>
+        
+        <div class="form-actions">
+            <button type="submit" class="save-button">Valider</button>
+            <button type="button" class="cancel-button" onclick="cancel()">Annuler</button>
+        </div>
+        <div class="form-message" id="form-message"></div>
+    </form>
+</div>
+
+
+
+{% endblock content %}

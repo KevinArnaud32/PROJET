@@ -1,9 +1,10 @@
 from django.urls import  path
-from .views import index, ajoutStudent, updateStudent
+from .views import list, add, update, supprimerStudent
 
 app_name= "student"
 urlpatterns = [
-   path('', index, name="index"),
-   path('ajouterStudent/', ajoutStudent, name="ajouterStudent" ),  
-   path('updateStudent/', updateStudent, name="modifierStudent" ),
+   path('', list, name="list"),
+   path('add/', add, name="add" ),  
+   path('modifierStudent/<int:id>', update, name="modifierStudent" ),
+   path('supprimerStudent/<int:id>', supprimerStudent, name="supprimerStudent")
 ]

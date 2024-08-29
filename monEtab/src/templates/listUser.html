@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+/* Styles pour le pop-up */
+.popup-overlay {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay */
+    z-index: 1000; /* Au-dessus du contenu */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative; /* Positionnement relatif pour le pop-up */
+    z-index: 1001; /* Au-dessus de l'overlay */
+}
+
+/* Appliquer le flou uniquement à l'arrière-plan */
+.blur {
+    filter: blur(5px);
+    position: relative;
+    z-index: 999; /* Sous le pop-up */
+}
+    
+    
+</style>
+
+<header>
+    <h1>Liste des Utilisateurs</h1>
+    <a href="{% url 'user:add' %}">
+        <button class="add-button">Nouvel utilisateurs</button>
+    </a>
+    <a href="{% url 'dashboard:index' %}">
+        <button class="add-button"> Retour </button>
+    </a>
+</header>
+
+<div class="user-list-container">
+    <h2>Utilisateurs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Date de Création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="user-list">
+            {% for user in users %}
+                <tr>
+                    <td> {{ user.pseudo_name }} </td>
+                    <td> {{ user.creat_at }} </td>
+                    <td>
+                        <a href="{% url 'user:update' user.id %}">Modifier</a>
+                        <a href="{% url 'user:delete' user.id %}" id="deleteLink" >
+                            <button class="delete-button" onclick="confirmDelete(1)">supprimer</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div id="confirmationPopup" class="popup-overlay">
+    <div class="popup-content">
+        <p>Êtes-vous sûr de vouloir supprimer cet élément ?</p>
+        <button id="confirmButton">Oui</button>
+        <button id="cancelButton">Non</button>
+    </div>
+</div>
+
+<script>
+    
+    function confirmDelete() {
+    // Prévenir le comportement par défaut du lien
+    event.preventDefault();
+
+    // Obtenir les éléments
+    const popupOverlay = document.getElementById('confirmationPopup');
+    const body = document.body;
+    const deleteLink = document.getElementById('deleteLink');
+
+    // Afficher le pop-up
+    popupOverlay.style.display = 'flex'; // Affiche le pop-up
+    //body.classList.add('blur'); // Applique le flou à l'arrière-plan
+
+    // Gérer les boutons de confirmation
+    document.getElementById('confirmButton').onclick = function() {
+        body.classList.remove('blur'); // Retirer le flou
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        window.location.href = deleteLink.href; // Rediriger vers l'URL de suppression
+    };
+
+    document.getElementById('cancelButton').onclick = function() {
+        popupOverlay.style.display = 'none'; // Masquer le pop-up
+        //body.classList.remove('blur'); // Retirer le flou
+    };
+}
+
+
+</script>
+
+{% endblock %}

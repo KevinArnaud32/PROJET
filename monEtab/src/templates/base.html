@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Utilisateurs</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="sidebar">
+        <img src="image.avif" alt="Logo de l'Établissement">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
+            <li><a href="{% url 'student:list' %}">Élèves</a></li>
+            <li><a href="{% url 'teacher:list' %}">Professeurs</a></li>
+            <li><a href="{% url 'user:list' %}">Utilisateurs</a></li>
+            <li><a href="{% url 'report:index' %}">Rapports</a></li>
+        </ul>
+        <div class="logout-button" onclick="logout()">Se déconnecter</div>
+    </div>
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+</body>
+</html>
