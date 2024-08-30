@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import StudentForm
 from .models import Student
 
 # Create your views here.
+@login_required
 def list(request):
 
     students = Student.objects.all()
@@ -15,6 +17,7 @@ def list(request):
     return render(request, 'listStudent.html', context)
 
 
+@login_required
 def add(request):
     
     if request.method == 'POST':
@@ -33,6 +36,7 @@ def add(request):
     return render(request, 'addStudent.html', context)
 
 
+@login_required
 def update(request, id):
     
     student = Student.objects.get(id = id)
@@ -54,6 +58,7 @@ def update(request, id):
     return render(request, 'updateStudent.html', context)
 
 
+@login_required
 def supprimerStudent(request, id):
 
     student = Student.objects.get(id = id)

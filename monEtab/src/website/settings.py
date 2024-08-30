@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'teacher.apps.TeacherConfig',
     'user.apps.UserConfig',
     'dashboard.apps.DashboardConfig',
+    'connexion.apps.ConnexionConfig',
     'crispy_forms',
     'crispy_bootstrap4',
 ]
@@ -136,6 +137,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'connexion:sign_in'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'boostrap4'
 CRISPY_TEMPLATE_PACKS = 'bootstrap4' 

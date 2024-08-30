@@ -27,4 +27,5 @@ urlpatterns = [
     path('teacher/',include('teacher.urls')),
     path('user/',include('user.urls')),
     path('report/',include('report.urls')),
+    path('connexion/',include('connexion.urls')),
 ]

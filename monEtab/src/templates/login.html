@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Mon Etab</h1>
+
+        <form method="POST" id="loginForm" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <input type="hidden" name="text" value="{{ next }}">
+            {% if error_message %}
+                <p style="color: red;" > {{ error_message }} </p>
+            {% endif %}
+            <div class="input-group">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" id="pseudo" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="motdepasse">Mot de Passe</label>
+                <input type="password" id="motdepasse" name="password" required>
+            </div>
+            <button type="submit">Se Connecter</button>
+            <p>
+                vous n'avez de compte cliquez <a href="{% url 'connexion:sign_up' %}">Ici</a>
+            </p>
+        </form>
+    </div>
+    <script src="{% static 'auth.js' %}"></script>
+</body>
+</html>

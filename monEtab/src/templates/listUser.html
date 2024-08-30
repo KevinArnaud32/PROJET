@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <style>
@@ -39,11 +41,14 @@
 
 <header>
     <h1>Liste des Utilisateurs</h1>
-    <a href="{% url 'user:add' %}">
+    <a href="{% url 'connexion:sign_up' %}">
         <button class="add-button">Nouvel utilisateurs</button>
     </a>
     <a href="{% url 'dashboard:index' %}">
         <button class="add-button"> Retour </button>
+    </a>
+    <a href="{% url 'connexion:log_out' %}">
+        <button class="add-button"> log out </button>
     </a>
 </header>
 
@@ -60,8 +65,8 @@
         <tbody id="user-list">
             {% for user in users %}
                 <tr>
-                    <td> {{ user.pseudo_name }} </td>
-                    <td> {{ user.creat_at }} </td>
+                    <td> {{ user.id }} </td>
+                    <td> {{ user.username }} </td>
                     <td>
                         <a href="{% url 'user:update' user.id %}">Modifier</a>
                         <a href="{% url 'user:delete' user.id %}" id="deleteLink" >

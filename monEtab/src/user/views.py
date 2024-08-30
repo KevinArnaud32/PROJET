@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .forms import UserForm
-from .models import User
+#from .models import User
 
 
 # Create your views here.
+@login_required
 def list(request):
 
     users = User.objects.all()
@@ -15,6 +18,8 @@ def list(request):
 
     return render(request,'listUser.html', context)
 
+
+@login_required
 def add(request):
 
     if request.method == "POST":
@@ -33,6 +38,8 @@ def add(request):
     context = {'user_form': user_form }
     return render(request, 'addUser.html', context)
 
+
+@login_required
 def update(request,id):
 
     user = User.objects.get(id = id)
@@ -56,6 +63,7 @@ def update(request,id):
     return render(request, 'updateUser.html', context)
 
 
+@login_required
 def delete(request, id):
 
     user = User.objects.get(id = id)

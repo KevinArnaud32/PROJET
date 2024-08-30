@@ -1,9 +1,11 @@
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import TeacherForm
 from .models import Teacher
 
 # Create your views here.
+@login_required
 def list(request):
 
     teachers = Teacher.objects.all();
@@ -14,6 +16,7 @@ def list(request):
 
     return render(request,'listTeacher.html', context)
 
+@login_required
 def add(request):
 
     if request.method == 'POST':
@@ -31,6 +34,7 @@ def add(request):
     context = {'teacher_form': teacher_form }
     return render(request, 'addTeacher.html', context)
 
+@login_required
 def modifierTeacher(request, id):
 
     teacher = Teacher.objects.get(id = id)
@@ -51,6 +55,7 @@ def modifierTeacher(request, id):
 
     return render(request, 'updateTeacher.html', context)
 
+@login_required
 def supprimerTeacher(request, id):
 
     teacher = Teacher.objects.get(id = id)

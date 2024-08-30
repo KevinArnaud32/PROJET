@@ -20,7 +20,9 @@
             <li><a href="{% url 'user:list' %}">Utilisateurs</a></li>
             <li><a href="{% url 'report:index' %}">Rapports</a></li>
         </ul>
+       <a href="{% url 'connexion:log_out' %}">
         <div class="logout-button" onclick="logout()">Se déconnecter</div>
+       </a>
     </div>
 
     <div class="main-content">
